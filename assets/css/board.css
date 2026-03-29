@@ -1,0 +1,161 @@
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1em;
+  padding: 1em;
+}
+
+.h2 {
+  width: fit-content;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.kanbanSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  height: 100vh;
+  text-align: center;
+}
+
+.kanbanSection h1 {
+  font-size: 3em;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  height: fit-content;
+  width: 250px;
+  border: solid 1px black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background-color: var(--primary-color);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  padding: 2%;
+  border-bottom: 1px dotted var(--border);
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-color);
+  padding: 2%;
+}
+
+.btn1 {
+  background-color: var(--issueBtn);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContent {
+  background-color: var(--background-color);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalContent h2 {
+  margin-bottom: 20px;
+}
+
+.modalContent label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modalContent input,
+.modalContent textarea {
+  width: 100%;
+  padding: 1%;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modalContent textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.deleteBtn {
+  background-color: var(--deleteBtn);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  align-self: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/* färgkodning för alla kolumner */
+
+.todo {
+  background-color: var(--todo);
+}
+
+.inProgress {
+  background-color: var(--inProgress);
+}
+
+.inReview {
+  background-color: var(--inReview);
+}
+
+.done {
+  background-color: var(--done);
+}
