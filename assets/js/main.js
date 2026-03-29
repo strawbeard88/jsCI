@@ -86,3 +86,53 @@ window.addEventListener("click", (event) => {
     currentColumn = null;
   }
 });
+
+issueForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const description = document.getElementById("description").value;
+
+  if (title && currentColumn) {
+    const cardId = `card-${Date.now()}`;
+    const card = createCard(title, description, cardId);
+    addDragEvents(card);
+    const column = document.querySelector(`.${currentColumn}.column`);
+
+    if (column) {
+      column.appendChild(card);
+      const newCard = { id: cardId, title, description, column: currentColumn };
+      cards.push(newCard);
+      saveCards(cards);
+    }
+  }
+
+  issueForm.reset();
+  modal.style.display = "none";
+});
+
+const columns = document.querySelectorAll(".column");
+columns.forEach((column) => {
+  column.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  column.addEventListener("drop", (e) => {
+    e.preventDefault();
+    const draggedCard = document.querySelector(".dragging");
+    if (!draggedCard) return;
+    column.appendChild(draggedCard);
+
+    const cardId = draggedCard.dataset.id;
+    const newColumn = Array.from(column.classList).find(
+      (className) => className !== "column",
+    );
+    if (!cardId || !newColumn) return;
+
+    const movedCard = cards.find((card) => card.id === cardId);
+    if (!movedCard) return;
+
+    movedCard.column = newColumn;
+    saveCards(cards);
+  });
+});
