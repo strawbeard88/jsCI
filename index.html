@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/board.css" />
+    <script src="assets/js/main.js" type="module" defer></script>
+  </head>
+  <body>
+    <main>
+      <section class="kanbanSection">
+        <div class="header">
+          <h1>KANBAN</h1>
+        </div>
+        <div class="board">
+          <div class="todo column">
+            <p class="h2">TODO</p>
+            <button class="btn1 btnAdd" data-column="todo">Add issue</button>
+          </div>
+          <div class="inProgress column">
+            <p class="h2">In Progress</p>
+            <button class="btn1 btnAdd" data-column="inProgress">
+              Add issue
+            </button>
+          </div>
+          <div class="inReview column">
+            <p class="h2">In Review</p>
+            <button class="btn1 btnAdd" data-column="inReview">
+              Add issue
+            </button>
+          </div>
+          <div class="done column">
+            <p class="h2">Done</p>
+            <button class="btn1 btnAdd" data-column="done">Add issue</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="modal" class="modal">
+      <div class="modalContent">
+        <span class="close">&times;</span>
+        <h2>Create New Issue</h2>
+        <form id="issueForm">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+          <label for="description">Description:</label>
+          <textarea id="description" name="description"></textarea>
+          <button type="submit" class="btnAdd">Create Issue</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
