@@ -74,3 +74,15 @@ addIssueBtn.forEach((btn) => {
     modal.style.display = "block";
   });
 });
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  currentColumn = null;
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+    currentColumn = null;
+  }
+});
