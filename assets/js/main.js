@@ -20,3 +20,13 @@ function createCard(title, description, id) {
   card.appendChild(deleteBtn);
   return card;
 }
+
+function addDragEvents(card) {
+  card.addEventListener("dragstart", () => {
+    card.classList.add("dragging");
+  });
+
+  card.addEventListener("dragend", () => {
+    card.classList.remove("dragging");
+  });
+}
