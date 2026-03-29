@@ -47,3 +47,12 @@ function loadCards() {
 function saveCards(cards) {
   localStorage.setItem("kanbanCards", JSON.stringify(cards));
 }
+
+function removeCard(id) {
+  const cardElement = document.querySelector(`.card[data-id="${id}"]`);
+  if (cardElement) {
+    cardElement.remove();
+    cards = cards.filter((card) => card.id !== id);
+    saveCards(cards);
+  }
+}
