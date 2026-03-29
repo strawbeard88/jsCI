@@ -56,3 +56,21 @@ function removeCard(id) {
     saveCards(cards);
   }
 }
+
+const modal = document.getElementById("modal");
+const closeBtn = document.querySelector(".close");
+const issueForm = document.getElementById("issueForm");
+const addIssueBtn = document.querySelectorAll(".btnAdd");
+
+let currentColumn = null;
+
+let cards = loadCards();
+
+addIssueBtn.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    if (this.dataset.column) {
+      currentColumn = this.dataset.column;
+    }
+    modal.style.display = "block";
+  });
+});
