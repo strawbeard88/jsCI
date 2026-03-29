@@ -30,3 +30,16 @@ function addDragEvents(card) {
     card.classList.remove("dragging");
   });
 }
+
+function loadCards() {
+  const savedCards = JSON.parse(localStorage.getItem("kanbanCards")) || [];
+  savedCards.forEach((cardData) => {
+    const card = createCard(cardData.title, cardData.description, cardData.id);
+    addDragEvents(card);
+    const column = document.querySelector(`.${cardData.column}.column`);
+    if (column) {
+      column.appendChild(card);
+    }
+  });
+  return savedCards;
+}
