@@ -43,3 +43,7 @@ function loadCards() {
   });
   return savedCards;
 }
+
+function saveCards(cards) {
+  localStorage.setItem("kanbanCards", JSON.stringify(cards));
+}
